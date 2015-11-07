@@ -7,7 +7,7 @@ class Userlogin extends CI_Controller {
         $this->load->model('users_model');
     }
 
-    function index()
+    public function index()
     {
 //      $this->load->library('form_validation');
 //
@@ -16,7 +16,11 @@ class Userlogin extends CI_Controller {
 //
 //      if($this->form_validation->run() == FALSE)
 //      {
-        $this->load->view('user/userlogin');
+        
+        $data['title'] = "User login";
+        $this->load->view('templates/header',$data);
+        $this->load->view('user/userlogin',$data);
+        $this->load->view('templates/footer',$data);
 //      }
 //      else
 //      {
@@ -30,7 +34,7 @@ class Userlogin extends CI_Controller {
       $username = $this->input->post('username');
       $password = $this->input->post('password');
       $result = $this->users_model->getuser($username, $password);
-       var_dump($result);
+     //  var_dump($result);
       if($result)
       {
         $sess_array = array();
@@ -42,6 +46,7 @@ class Userlogin extends CI_Controller {
           );
           $this->session->set_userdata('logged_in', $sess_array);
         }
+         echo "Successfuly logged in";
         return TRUE;
       }
       else
@@ -49,5 +54,7 @@ class Userlogin extends CI_Controller {
         echo 'Invalid username or password';
         return false;
       }
+      
+     
     }   
 }

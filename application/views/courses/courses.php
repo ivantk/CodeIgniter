@@ -1,5 +1,5 @@
 
-<div style="padding-left:50px">
+<div class="page">
     <h1><?php echo $title; ?></h1>
 <?php foreach ($courses as $cours_item): ?>
         <div>

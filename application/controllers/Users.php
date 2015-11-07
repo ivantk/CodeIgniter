@@ -19,6 +19,13 @@ class Users extends CI_Controller {
                 $this->load->view('templates/footer');
         }
 */
+        
+        public function viewmyprofile() {
+            $sess_array = $this->session->userdata('logged_in');
+            //var_dump($sess_array['logged_in']);
+            $this->viewprofile($sess_array['id']);
+        }
+        
         public function viewprofile($id = 0)
         {
                 $data['user_profiles'] = $this->user_model->get_userid($id);
@@ -28,11 +35,12 @@ class Users extends CI_Controller {
                 {
                         show_404();
                 }
-
-                $data['title'] = $data['user_profiles']['title'];
+                
+                $data['firstName'] = $data['user_profiles']['firstName'];
+                $data['family'] = $data['user_profiles']['familiy'];
 
                 $this->load->view('templates/header', $data);
-                $this->load->view('users/users', $data);
+                $this->load->view('users/index', $data);
                 $this->load->view('templates/footer');
         }        
         

@@ -10,7 +10,7 @@ class User_model extends CI_Model {
         
         public function get_userid($id = 0)
         {
-                $query = $this->db->get_where('user_profiles', array('userid' => $id));
+                $query = $this->db->get_where('user_profiles', array('userId' => $id));
                 return $query->row_array();
         }        
 }

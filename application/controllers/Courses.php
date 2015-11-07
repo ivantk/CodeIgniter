@@ -5,7 +5,7 @@ class Courses extends CI_Controller {//каталог
         {
                 parent::__construct();
                 $this->load->model('courses_model');
-                $this->load->helper('url_helper');
+                //$this->load->helper('url_helper');
         }
 
         public function index()
