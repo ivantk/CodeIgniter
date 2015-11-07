@@ -18,9 +18,9 @@ class Courses extends CI_Controller {//каталог
                 $this->load->view('templates/footer');
         }
 
-        public function view($slug = NULL)
+        public function view($id = NULL)
         {
-            $data['course_item'] = $this->courses_model->get_course($slug);
+            $data['course_item'] = $this->courses_model->get_course($id);
 
             if (empty($data['course_item']))
             {

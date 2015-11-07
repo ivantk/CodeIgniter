@@ -3,15 +3,15 @@ class Courses_model extends CI_Model{
     public function __costruct(){
         $this->load->database();
     }
-    public function get_course($slug = FALSE)
+    public function get_course($id = FALSE)
     {
-        if ($slug === FALSE)
+        if ($id === FALSE)
         {
                 $query = $this->db->get('courses');
                 return $query->result_array();
         }
 
-        $query = $this->db->get_where('courses', array('slug' => $slug));
+        $query = $this->db->get_where('courses', array('id' => $id));
         return $query->row_array();
     }
     public function insert_course()
