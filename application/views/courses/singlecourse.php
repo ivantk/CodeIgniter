@@ -15,14 +15,15 @@ div.course {
 }
 
 </style>
-<body>
+
     <div class="title">
-        <h1>Title single course</h1>
+        <h1><?php echo $name; ?></h1>
     </div>
+
     <div class="course">
-        Name course:
-        Lector:
-        Start Date: 
+        <h3><?php echo $course_item['description']; ?></h3>
+       
+            <?php echo $course_item['startdate']; ?>
     </div>
+
     
-</body>
