@@ -23,7 +23,7 @@ class Courses_model extends CI_Model{
        $data = array(
         'name' => $this->input->post('name'),
         'summary' => $this->input->post('summary'),
-        'description' => $this->input->post('summary'),
+        'description' => $this->input->post('description'),
         );
         return $this->db->insert('courses', $data);
     }
