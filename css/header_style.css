@@ -1,0 +1,62 @@
+	#logo{
+	float:left; 
+	width:100px; 
+	margin-right:20px; 
+	margin-left:10px;
+	}
+	
+	.clear{
+		clear:both;}
+	
+	#menu{
+		float:left;	
+		width:35%;}
+	
+	#menu ul{
+		border:1px solid red;
+		padding:10px;	
+		background:#99FF00;}
+	
+	#menu a{
+		text-decoration:none;
+		color:maroon;	}
+	
+		
+	#homepage{
+			width:60%; 
+			float:left;
+			padding:10px;
+			color:black;}
+			
+	#homepage h2{
+			background:red;}
+			
+	#about_us {
+		float:left;
+		width: 60%;
+		color:black;
+		padding:10px;		}
+		
+	#about_us h2{
+		background:lime;	}
+		
+	body {
+		margin:0;
+		padding:0;}
+		
+	#catalog {
+			width:60%; 
+			float:left;
+			padding:10px;
+			color:black;}
+				
+	#product {
+			float:left;
+			padding:10px;
+			color:black;}
+		
+		
+        #header{	width:100%; 
+			float:left;
+                        color: white;
+			background:black;}
