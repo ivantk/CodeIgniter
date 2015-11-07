@@ -1,3 +1,6 @@
+
+<div style="padding-left:50px">
+    <h1><?php echo $title; ?></h1>
 <?php foreach ($courses as $cours_item): ?>
         <div>
             <h5><?php echo $cours_item['name']; ?></h5>
@@ -8,3 +11,4 @@
         </div>
     
 <?php endforeach; ?>
+</div>

@@ -10,12 +10,13 @@ class Courses extends CI_Controller {//каталог
 
         public function index()
         {
-                $data['news'] = $this->courses_model->get_course();
-                $data['name'] = 'News archive';
-
+            $data['title'] = "Courses list view";
+            $data['courses'] = $this->courses_model->getall();
+ 
+                    
                 $this->load->view('templates/header', $data);
-                $this->load->view('courses/index', $data);
-                $this->load->view('templates/footer');
+                $this->load->view('courses/courses', $data);
+                $this->load->view('templates/footer', $data);
         }
 
         public function view($id = NULL)

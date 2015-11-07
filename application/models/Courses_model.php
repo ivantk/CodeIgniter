@@ -3,8 +3,15 @@ class Courses_model extends CI_Model{
     public function __costruct(){
         $this->load->database();
     }
+    
+    public function getall () {
+        $query = $this->db->get('courses');
+        return $query->result_array();
+    }
+    
     public function get_course($id = FALSE)
     {
+        /*
         if ($id === FALSE)
         {
                 $query = $this->db->get('courses');
@@ -13,9 +20,12 @@ class Courses_model extends CI_Model{
 
         $query = $this->db->get_where('courses', array('id' => $id));
         return $query->row_array();
+         * 
+         */
     }
     public function insert_course()
     {
+        /**
        $this->load->helper('url');
 
        $slug = url_title($this->input->post('name'), 'dash', TRUE);
@@ -26,5 +36,7 @@ class Courses_model extends CI_Model{
         'description' => $this->input->post('description'),
         );
         return $this->db->insert('courses', $data);
+         * */
+         
     }
 }
