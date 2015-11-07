@@ -32,7 +32,7 @@ class Users extends CI_Controller {
                 $data['title'] = $data['user_profiles']['title'];
 
                 $this->load->view('templates/header', $data);
-                $this->load->view('news/view', $data);
+                $this->load->view('users/users', $data);
                 $this->load->view('templates/footer');
         }        
         
