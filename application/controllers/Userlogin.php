@@ -4,38 +4,33 @@ class Userlogin extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('getuser');
+        $this->load->model('users_model');
     }
 
     function index()
     {
-      //This method will have the credentials validation
-      $this->load->library('form_validation');
-
-      $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
-      $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
-
-      if($this->form_validation->run() == FALSE)
-      {
-        //Field validation failed.  User redirected to login page
-        $this->load->view('userlogin');
-      }
-      else
-      {
-        //Go to private area
-        redirect('home', 'refresh');
-      }
+//      $this->load->library('form_validation');
+//
+//      $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
+//      $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_database');
+//
+//      if($this->form_validation->run() == FALSE)
+//      {
+        $this->load->view('user/userlogin');
+//      }
+//      else
+//      {
+//        redirect('home', 'refresh');
+//      }
 
     }
 
-    function check_database($password)
+    function checkdatabase()
     {
-      //Field validation succeeded.  Validate against database
       $username = $this->input->post('username');
-
-      //query the database
-      $result = $this->user->login($username, $password);
-
+      $password = $this->input->post('password');
+      $result = $this->users_model->getuser($username, $password);
+       var_dump($result);
       if($result)
       {
         $sess_array = array();
@@ -51,7 +46,7 @@ class Userlogin extends CI_Controller {
       }
       else
       {
-        $this->form_validation->set_message('check_database', 'Invalid username or password');
+        echo 'Invalid username or password';
         return false;
       }
     }   
