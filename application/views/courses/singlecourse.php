@@ -21,9 +21,9 @@ div.course {
     </div>
 
     <div class="course">
-        <h3><?php echo $course_item['description']; ?></h3>
-       
-            <?php echo $course_item['startdate']; ?>
+        <h3><?php echo $description; ?></h3>
+        <p>   <?php echo $startdate; ?> </p>
+        <p>   <?php echo $duration; ?> </p>
     </div>
 
     
