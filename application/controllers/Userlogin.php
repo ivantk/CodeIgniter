@@ -40,13 +40,28 @@ class Userlogin extends CI_Controller {
         $sess_array = array();
         foreach($result as $row)
         {
-          $sess_array = array(
-            'id' => $row->id,
-            'username' => $row->username
-          );
-          $this->session->set_userdata('logged_in', $sess_array);
+            $sess_array = array(
+              'id' => $row->id,
+              'username' => $row->username,
+              'role' => $row->role
+            );       
         }
-         echo "Successfuly logged in";
+        switch($sess_array['role']){
+            case 'admin':
+                $this->session->set_userdata('logged_in_admin', $sess_array);
+                redirect(base_url('index.php/usermanagement/index'), 'refresh');
+                break;
+            case 'student':
+                $this->session->set_userdata('logged_in_student', $sess_array);
+                //redirect
+                break;
+            case 'lector':
+                $this->session->set_userdata('logged_in_lector', $sess_array);
+                //redirect
+                break;
+            default: 'Access denied!';
+        }
+       //echo "Successfuly logged in";
         return TRUE;
       }
       else
@@ -57,4 +72,10 @@ class Userlogin extends CI_Controller {
       
      
     }   
+    public function logout()
+    {
+      $this->session->unset_userdata('logged_in');
+      $this->session->sess_destroy();
+      redirect(base_url(), 'refresh');
+    }
 }
