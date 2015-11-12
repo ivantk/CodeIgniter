@@ -49,7 +49,7 @@ class Userlogin extends CI_Controller {
         switch($sess_array['role']){
             case 'admin':
                 $this->session->set_userdata('logged_in_admin', $sess_array);
-                redirect(base_url('index.php/usermanagement/index'), 'refresh');
+                redirect(base_url('index.php/AdminConsole/index'), 'refresh');
                 break;
             case 'student':
                 $this->session->set_userdata('logged_in_student', $sess_array);

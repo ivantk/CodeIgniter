@@ -5,15 +5,13 @@ class Courses extends CI_Controller {//каталог
         {
                 parent::__construct();
                 $this->load->model('courses_model');
-                //$this->load->helper('url_helper');
+                $this->load->helper('url_helper');
         }
 
         public function index()
         {
             $data['title'] = "Courses list view";
             $data['courses'] = $this->courses_model->getall();
- 
-                    
                 $this->load->view('templates/header', $data);
                 $this->load->view('courses/courses', $data);
                 $this->load->view('templates/footer', $data);
@@ -44,8 +42,13 @@ class Courses extends CI_Controller {//каталог
         public function insertCourse(){
             $this->load->model('model/courses_model');
             $this->courses_model->insert_course();
+            redirect(base_url('index.php/Courses/index'), 'refresh');
         }
-            
+
+        public function deleteCourse($id){
+            $this->db->delete('courses', array('id' => $id));
+            redirect(base_url('index.php/Courses/index'), 'refresh');
+        }
             
         
 }

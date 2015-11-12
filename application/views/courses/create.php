@@ -1,5 +1,9 @@
-
-<form action="index.php/Courses/insertCourse" method="post">
+<style>
+        body {
+                color: white;
+        }
+</style>
+<form action="insertCourse" method="post">
     <table>		
             <tr>
                     <td>Name:</td>
