@@ -43,7 +43,7 @@ class Userlogin extends CI_Controller {
             $sess_array = array(
               'id' => $row->id,
               'username' => $row->username,
-              'role' => $row->role
+              'role' => strtolower($row->role)
             );       
         }
         switch($sess_array['role']){
@@ -53,10 +53,12 @@ class Userlogin extends CI_Controller {
                 break;
             case 'student':
                 $this->session->set_userdata('logged_in_student', $sess_array);
+                echo "You are logged in as Student";
                 //redirect
                 break;
             case 'lector':
                 $this->session->set_userdata('logged_in_lector', $sess_array);
+                echo "You are logged in as Lector";
                 //redirect
                 break;
             default: 'Access denied!';

@@ -20,7 +20,7 @@ class Usermanagement extends CI_Controller {
    }
    else
    {
-      redirect(base_url('index.php/userlogin/index'), 'refresh');
+     // redirect(base_url('index.php/userlogin/index'), 'refresh');
    }
  }
     public function deleteuser($id){
